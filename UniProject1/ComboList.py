@@ -1,0 +1,21 @@
+Name1WordCombo = ["i'm"]
+Name2WordComboW1 = ["i"]
+Name2WordComboW2 = ["am"]
+Name3WordComboW1 = ["my"]
+Name3WordComboW2 = ["name"]
+Name3WordComboW3 = ["is"]
+
+Wish1WordCombo = []
+Wish2WordComboW1 = ["bring","give","would","wish","to"]
+Wish2WordComboW2 = ["want","for","love","like","receive","me"]
+#Wish me, to me, bring love, give love, to like    | IGNORE THESE
+Wish3WordComboW1 = []
+Wish3WordComboW2 = []
+Wish3WordComboW3 = []
+
+Address1WordCombo = ["live"]
+Address2WordComboW1 = ["found"]
+Address2WordComboW2 = ["at","on"]
+Address3WordComboW1 = ["find"]
+Address3WordComboW2 = ["me"]
+Address3WordComboW3 = ["at","on"]
