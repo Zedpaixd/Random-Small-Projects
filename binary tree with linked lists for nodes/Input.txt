@@ -1,0 +1,4 @@
+any kind of
+input should go here
+on as many lines
+as one wants
