@@ -17,7 +17,6 @@ public class MonopolyGame {
 
     public void playMonopoly()
     {
-
         for (int i = 0; i < players.length; i++)
         {
             players[i] = new Player(colours[i]);
@@ -25,14 +24,8 @@ public class MonopolyGame {
 
         for (int i = 0; i < rounds; i++)
         {
-            /*for (Player pl : players)
-            {
-                System.out.printf("Player %s is at position %d, currently owning %d Pounds\n",pl.name,pl.position,pl.cash);
-
-            }*/
             for (Player pl : players)
             {
-                //System.out.println(pl.name + pl.position);
                 //System.out.println(gameBoard.boardSquare[pl.position-1].name);
 
                 for (Player pla: players)
@@ -42,7 +35,6 @@ public class MonopolyGame {
 
                 gameBoard.backend(pl);
 
-                //System.out.printf("Player %s advanced to square %d\n",pl.name,pl.position);
                 System.out.println("------------------------------------------------------------------------------");
             }
         }

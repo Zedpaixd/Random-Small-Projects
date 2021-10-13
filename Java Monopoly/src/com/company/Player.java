@@ -4,9 +4,8 @@ import java.util.Random;
 
 public class Player {
 
-    int cash;
+    int cash,position;
     String name;
-    int position;
     Random randomNumb = new Random();
 
     public Player(String name)
@@ -16,16 +15,20 @@ public class Player {
         this.name = name;
     }
 
-    public int throwDice() {
+    public int throwDice()
+    {
         return randomNumb.nextInt(2,12);
     }
 
     public void move() {
+
         position = position + throwDice();
+
         if (position > 40)
         {
             position = position - 40;
             cash = cash + 200;
+
             System.out.println("Player: " + name + " has gone past the last square for a total of extra 200 credit!");
         }
     }

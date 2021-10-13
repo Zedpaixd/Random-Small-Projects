@@ -5,6 +5,8 @@ import java.util.Random;
 public class Board
 {
     Square[] boardSquare;
+    Square toAccess;       //ask at lab how to access without creating this
+
     String[] squareNames = {"House","Jail","Island","idk"};
     Random random = new Random();
     int players;
@@ -12,13 +14,18 @@ public class Board
     public Board(int players)
     {
         this.players = players;
+
         boardSquare = new Square[40];
+        toAccess = new Property("justAccessing",200,players);
+
         for (int i = 0; i < 40; i++)
         {
 
             if (i % 3 == 0)
             {
-                boardSquare[i] = new Property(squareNames[random.nextInt(squareNames.length)],200,players);
+                boardSquare[i] = new Property(squareNames[random.nextInt(squareNames.length)],
+                        ((Property)toAccess).rentPrices[random.nextInt(((Property)toAccess).rentPrices.length)],
+                        players);
             }
             else if (i % 23 == 0)
             {
@@ -40,11 +47,16 @@ public class Board
             if(player.cash > ((Property) boardSquare[player.position - 1]).price)
             {
                 ((Property) boardSquare[player.position - 1]).buy(player);
-                System.out.println("Player: " + player.name + " bought a field for " + ((Property) boardSquare[player.position - 1]).price);
+
+                System.out.println("Player: " + player.name +
+                                   " bought a field for " + ((Property) boardSquare[player.position - 1]).price);
+
+                player.cash = player.cash - ((Property) boardSquare[player.position - 1]).price;
             }
             else
             {
-                System.out.println("Player: " + player.name + " attempted to buy a field but did not have enough money.");
+                System.out.println("Player: " + player.name +
+                                   " attempted to buy a field but did not have enough money.");
             }
 
         }
@@ -52,7 +64,10 @@ public class Board
         {
             ((Property) boardSquare[player.position - 1]).owner.cash = ((Property) boardSquare[player.position - 1]).owner.cash + ((Property) boardSquare[player.position - 1]).price;
             player.cash = player.cash - ((Property) boardSquare[player.position - 1]).price;
-            System.out.println("Player: " + player.name+" paid " + ((Property) boardSquare[player.position - 1]).owner.name + ((Property) boardSquare[player.position - 1]).price + " for rent");
+
+            System.out.println("Player: " + player.name +
+                               " paid " + ((Property) boardSquare[player.position - 1]).owner.name + ((Property) boardSquare[player.position - 1]).price +
+                               " for rent");
         }
     }
 
