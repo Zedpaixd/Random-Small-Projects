@@ -21,7 +21,7 @@ public class Board
         for (int i = 0; i < 40; i++)
         {
 
-            if (i % 3 == 0)
+            if (i % 2 == 0 && i != 0)
             {
                 boardSquare[i] = new Property(squareNames[random.nextInt(squareNames.length)],
                         ((Property)toAccess).rentPrices[random.nextInt(((Property)toAccess).rentPrices.length)],

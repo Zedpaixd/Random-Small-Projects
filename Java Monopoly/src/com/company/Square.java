@@ -4,4 +4,6 @@ public class Square
 {
     String name;
     Player[] players;
+    Player owner;
+    int price;
 }

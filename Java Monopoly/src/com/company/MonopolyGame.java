@@ -39,9 +39,30 @@ public class MonopolyGame {
             }
         }
 
+        System.out.println("Since game ended we shall now add each player the cost of their buildings to their final score.");
+        System.out.println("------------------------------------------------------------------------------");
 
+        for (Player pl : players)
+        {
+            for (int i = 0; i < 40; i++)
+            {
+                if (gameBoard.boardSquare[i].owner.name == pl.name)
+                {
+                    pl.cash = pl.cash + gameBoard.boardSquare[i].price;
+                    System.out.println("Player: " + pl.name + " owns square " + i + " therefore " + gameBoard.boardSquare[i].price + " pounds have been added to his final score");
+                }
+            }
 
+            System.out.println("------------------------------------------------------------------------------");
 
+        }
+
+        System.out.println("Final scores:");
+
+        for (Player pl: players)
+        {
+            System.out.println(pl.name + " : " + pl.cash);
+        }
 
 
 
@@ -58,4 +79,6 @@ public class MonopolyGame {
         System.out.printf("Winner is: %s with a total sum of %d and at position %d",winner.name,winner.cash,winner.position);
 
     }
+
+
 }
