@@ -3,11 +3,13 @@ package com.company;
 public class Property extends Square{
 
     int[] rentPrices = {10,50,100,150,200,250,500};
-    int rent, level;
+    //int rent, level;
     boolean isBought;
+  
 
-    public Property(String name, int price, int players)
+    public Property(boolean buyable, String name, int price, int players)
     {
+        this.canBeBought = buyable;
         this.name = name;
         this.price = price;
         this.players = new Player[players];
@@ -24,6 +26,7 @@ public class Property extends Square{
             {
                 this.owner.cash = owner.cash-price;
                 this.owner = owner;
+                this.isBought = true;
             }
             else
 
@@ -33,9 +36,15 @@ public class Property extends Square{
         }
     }
 
-    public Player returnOwner()
+    public void sell(Player owner)
     {
-        return this.owner;
+        if (this.owner.name == owner.name)
+        {
+            owner.cash = owner.cash + price;
+            this.isBought = false;
+            this.owner = new Player("Not Owned");
+        }
     }
+
 
 }

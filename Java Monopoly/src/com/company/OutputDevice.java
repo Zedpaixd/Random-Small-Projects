@@ -9,6 +9,7 @@ public class OutputDevice {
         for (String a:s)
             System.out.println(a);
 
+
     }
 
     public void WriteMessage(String mess)

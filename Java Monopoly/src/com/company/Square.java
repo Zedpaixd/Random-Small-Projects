@@ -6,4 +6,5 @@ public class Square
     Player[] players;
     Player owner;
     int price;
+    boolean canBeBought;
 }
